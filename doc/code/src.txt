@@ -1,6 +1,0 @@
-【AI-RecommenderSystem】
-https://github.com/zhongqiangwu960812/AI-RecommenderSystem
-
-【recommend-tf2.0】
-https://github.com/littlemesie/recommend-tf2.0
-https://github.com/jc-LeeHub/Recommend-System-tf2.0
