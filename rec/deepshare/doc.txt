@@ -1,0 +1,38 @@
+【课程】
+https://ai.deepshare.net/detail/p_615fc392e4b0448bf660515a/5
+04 Part 1：推荐系统基础课
+03 推荐系统项目课程
+02 项目七、基于tensorflow实现招聘推荐核心算法
+01 项目八、基于社交关系的推荐
+
+【网盘资料】
+项目八 课件资料
+链接：https://pan.baidu.com/s/1PK7vy7d-wwymbJ-tBF7_yQ?pwd=kyca
+提取码：kyca
+
+项目七资料链接：
+链接：https://pan.baidu.com/s/16MUMfxso9OEAJNU9cg34Vg
+提取码：m96z
+
+课件
+链接：https://pan.baidu.com/s/1CLGJQsSKmjn8QIX_ZDcdag
+提取码：d191
+
+
+【版本说明】
+v1 - 2022-02-02
+v2 - 2022-10-10
+
+
+
+FM因子分解机的原理、公式推导、实现和应用
+https://zhuanlan.zhihu.com/p/145436595
+
+FM：推荐算法中的瑞士军刀
+https://zhuanlan.zhihu.com/p/343174108
+摘要：
+y = w_0 + ∑w_i * x_i  + ∑ ∑<w_i,w_j> * x_i*x_j
+都是ID类特征，所以FM公式简化为 = >
+y = w_0 + ∑w_i * x_i  + ∑ ∑<w_i,w_j>
+两两特征交叉，将时间复杂度由[公式]降低为O(n)，而且n还是样本中的非零特征数
+y = w_0 + (∑w_i) * * 2  + ∑w_i * * 2

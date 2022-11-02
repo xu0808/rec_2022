@@ -1,0 +1,10 @@
+"redis://username:password@127.0.0.1:6379/" + str(db)
+
+db=1 用户特征
+db=2 文章特征
+db=3 matrix_cf的文章相似矩阵
+db=4 item_cf的文章相似矩阵
+db=5 user_cf的文章相似矩阵
+db=6 fm_i2i的文章相似矩阵
+db=7 fm召回 文章隐向量
+db=8 fm召回 用户隐向量
