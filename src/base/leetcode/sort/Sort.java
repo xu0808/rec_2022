@@ -14,22 +14,33 @@ public class Sort {
 
     // 二分排序:从小到大 (时间复杂度O(nlogn))
     public static void sort4(int[] array) {
-        for (int i = 1; i < array.length; i++) {
-            int temp = array[i];
+        // 数组长度
+        int size = array.length;
+        // 逐个数字插入有序数组
+        for (int i = 1; i < size; i++) {
+            // 待插入数字
+            int insert = array[i];
+            // 最小位、最大位（可以为同一个）
             int low = 0, high = i - 1;
             int mid = -1;
+            // 最小位不大于最大位
             while (low <= high) {
+                // 中间位
                 mid = low + (high - low) / 2;
-                if (array[mid] > temp) {
+                // 中间位大，最大位改为中间位-1
+                if (array[mid] > insert) {
                     high = mid - 1;
+                // 中间位小，最小位改为中间位+1
                 } else { // 元素相同时，也插入在后面的位置
                     low = mid + 1;
                 }
             }
+            // 插入点后数组后移
             for(int j = i - 1; j >= low; j--) {
                 array[j + 1] = array[j];
             }
-            array[low] = temp;
+            // 插入点
+            array[low] = insert;
         }
     }
 }
