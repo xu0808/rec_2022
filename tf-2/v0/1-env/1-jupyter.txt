@@ -1,0 +1,14 @@
+Jupyter Notebook 安装和使用
+https://blog.csdn.net/lsxxx2011/article/details/123059230
+
+1、安装
+python -m pip install --upgrade pip
+python -m pip install jupyter -i https://mirrors.aliyun.com/pypi/simple/
+
+2、启动
+python -m jupyter notebook
+
+3、配置
+python -m jupyter notebook --generate-config
+# 指定路径（两条反斜杠！！）
+c.NotebookApp.notebook_dir = 'C:\\study\\src\\tf2\\TensorFlow-Camp-master'

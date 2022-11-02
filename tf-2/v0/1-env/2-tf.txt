@@ -1,0 +1,84 @@
+【python3】
+Python 3.7.0
+
+python --version
+pip --version
+python -m pip install --upgrade pip  -i https://mirrors.aliyun.com/pypi/simple/
+
+# 阿里源
+pip install markdown -i https://mirrors.aliyun.com/pypi/simple/
+# 豆瓣源
+pip install markdown -i http://pypi.douban.com/simple/
+
+
+【CUDA】
+一、cuda
+1、驱动版本
+nvidia GetForce MX250
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 441.12       Driver Version: 441.12       CUDA Version: 10.2     |
+|-------------------------------+----------------------+----------------------+
+
+2、cuda下载
+https://www.nvidia.cn/geforce/drivers/
+历史版本
+https://www.nvidia.cn/Download/Find.aspx?lang=cn
+
+
+二、关联环境
+1、cudatoolkit
+https://developer.nvidia.com/cuda-downloads
+https://developer.download.nvidia.cn/compute/cuda/10.2/Prod/network_installers/cuda_10.2.89_win10_network.exe
+
+2、cudnn
+https://developer.nvidia.com/rdp/cudnn-archive
+https://developer.download.nvidia.cn/compute/machine-learning/cudnn/secure/7.6.5.32/Production/10.2_20191118/cudnn-10.2-windows10-x64-v7.6.5.32.zip
+
+3、nvcc
+cd C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.2\bin>
+nvcc -V
+Cuda compilation tools, release 10.2, V10.2.89
+
+三、tf安装
+1、版本要求
+https://tensorflow.google.cn/install/source_windows?hl=en#gpu
+tensorflow_gpu-2.3.0 python 3.6-3.9	cudnn7.6.5 cudatoolkit10.2.89 cuda10.2
+
+2、安装gpu-2.3.0
+python -m pip install tensorflow_gpu==2.3.0  -i https://mirrors.aliyun.com/pypi/simple/
+
+3、问题
+1）、Visual Studio 2017
+windows10安装Visual Studio 2017
+ImportError: No module named ‘_pywrap_tensorflow_internal’
+
+2）、cuda版本还是不完全兼容
+Could not load dynamic library 'cudart64_101.dll'; dlerror: cudart64_101.dll not found
+cudart64_102.dll -> cudart64_101.dll
+
+【总结】
+还是使用conda安装方便些
+
+【conda安装】
+1、GPU查看
+nvidia-smi
+2、cuda安装
+conda install cudatoolkit=10.1
+
+3、cudnn安装
+conda install cudnn=7.6.5
+
+4、tensorflow-gpu
+# 需要很多依赖库
+pip install tensorflow-gpu==2.3.0 -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com
+
+【doc】
+Tensorflow 2.x入门教程
+https://www.cnblogs.com/LXP-Never/p/15917498.html
+【知乎】最全Tensorflow2.0 入门教程持续更新
+【和鲸社区】30天吃掉那只TensorFlow2.0 | Github
+【书籍】TensorFlow 2深度学习开源书 | PDF下载 提取码：juqs
+【bilibili】tensorflow2.0入门与实战 2019年最通俗易懂的课程
+【bilibili】神经网络与深度学习——TensorFlow2.0实战【中文课程】
+【github】TensorFlow-Examples
+【github】TensorFlow-2.x-Tutorials
