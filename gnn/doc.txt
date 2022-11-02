@@ -1,0 +1,19 @@
+【从DeepWalk到Node2vec、EGES】
+https://zhuanlan.zhihu.com/p/412204130
+
+【TF图神经网络框架】
+TensorFlow图神经网络（GNN）框架：tf_geometric
+https://blog.csdn.net/qq_38251616/article/details/122003893
+摘要:
+tf_geometric使用消息传递机制来实现图神经网络：相比于基于稠密矩阵的实现，
+它具有更高的效率；相比于基于稀疏矩阵的实现，它具有更友好的API。
+除此之外，tf_geometric还为复杂的图神经网络操作提供了简易优雅的API。
+
+
+【万物皆可Graph】
+https://jishuin.proginn.com/p/763bfbd376bd
+
+
+
+【EGES tf1.0版本完整实现】
+https://blog.csdn.net/weixin_35154281/article/details/117396048
