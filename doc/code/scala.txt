@@ -1,0 +1,6 @@
+【scala】
+1、scala和java类型转换
+    val propList: util.List[java.lang.Double] = itemDistribution.values.map{
+      x => new java.lang.Double(x) }.toList.asJava
+2、局部敏感hash和faiss性能对比
+   bucketModel.approxNearestNeighbors(vecBucket, vec, Common.topN + 1)

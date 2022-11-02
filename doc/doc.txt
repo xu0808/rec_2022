@@ -1,0 +1,71 @@
+【王喆-推荐系统】
+1、开篇词
+https://bbs.huaweicloud.com/blogs/328575
+
+【推荐平台】
+一、向量服务
+1、多模态向量检索引擎：Faiss 、milvus、Proxima、vearch、Jina等
+https://zhuanlan.zhihu.com/p/364923722
+
+2、SpringBoot整合Milvus
+https://blog.csdn.net/weixin_42536015/article/details/121858695
+
+3、Milvus 开源向量搜索引擎 ANNS
+https://zhuanlan.zhihu.com/p/346151168
+
+二、特征平台
+https://zhuanlan.zhihu.com/p/406897374
+
+三、推理框架
+史上最全面的AI推理框架对比--OpenVINO、TensorRT、Mediapipe
+https://zhuanlan.zhihu.com/p/344442534
+
+
+【推荐系统】
+一、深度学习推荐系统
+王喆的机器学习笔记
+https://zhuanlan.zhihu.com/wangzhenotes
+
+二、Graph Embedding
+node2vec原理介绍及其spark实现
+https://zhuanlan.zhihu.com/p/122704411
+graph embedding 使用方法
+https://www.cnblogs.com/Allen-rg/p/11468573.html
+全面理解PinSage
+https://zhuanlan.zhihu.com/p/133739758
+https://github.com/breadbread1984/PinSage-tf2.0
+
+三、YouTube推荐系统
+https://zhuanlan.zhihu.com/p/138777815
+YoutubeDNN实现
+https://blog.csdn.net/baidu_28610773/article/details/121136150
+Youtube
+https://blog.csdn.net/dQCFKyQDXYm3F8rB0/article/details/86587032
+YouTube深度学习推荐
+https://blog.csdn.net/Tonywu2018/article/details/104297965
+
+
+【Tensorflow 2.0】
+1、tf2.0对经典推荐论文进行复现
+https://zhuanlan.zhihu.com/p/164878416
+https://github.com/ZiyaoGeng/Recommender-System-with-TF2.0.git
+
+【KServe】
+KServe 提供 一个 Kubernetes 自定义资源定义，用于在任意框架上提供机器学习 (ML) 模型服务。
+它旨在通过为常见的 ML 框架（如：Tensorflow、XGBoost、Scikit-Learn、PyTorch 和 ONNX）提供高性能、高度抽象的接口来解决生产模型服务场景。
+kf-serving预测模型使用教程
+https://www.cnblogs.com/zhouwenyang/p/15508096.html
+
+
+【大厂实践】
+深度学习在搜索业务中的探索与实践
+https://www.infoq.cn/article/vkZxPzZReHIg9au-o10F
+
+【NGCF】
+NGCF及其改进模型LightGCN
+https://www.hikg.net/archives/125/
+
+【推荐系统】
+MMOE多任务学习模型介绍与源码浅析
+https://zhuanlan.zhihu.com/p/347856746
+

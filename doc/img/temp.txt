@@ -1,0 +1,2 @@
+Age,Employment,Education,Marital,Occupation,Income,Gender,Deductions,Hours,Adjusted
+38,Private,College,Unmarried,Service,81838.0,Female,False,72,0
