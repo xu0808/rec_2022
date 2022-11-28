@@ -44,8 +44,8 @@ public class Lesson2 {
     }
 
     public static void main(String[] args) {
-        System.out.println("meth 1 = " + countPrimes(25 * 25));
-        System.out.println("meth 2 = " + eratosthenes(25 * 25 ));
+        System.out.println("meth 1 = " + countPrimes(53));
+        System.out.println("meth 2 = " + eratosthenes(53 ));
     }
 
 }
