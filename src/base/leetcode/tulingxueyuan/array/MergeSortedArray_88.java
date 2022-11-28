@@ -1,6 +1,6 @@
 package tulingxueyuan.array;
 
-import cn.tulingxueyuan.sort.PrintArray;
+import tulingxueyuan.sort.PrintArray;
 
 import java.util.Arrays;
 
