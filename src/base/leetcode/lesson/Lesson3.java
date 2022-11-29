@@ -28,14 +28,15 @@ public class Lesson3 {
      */
     public static int newton(int x) {
         if(x==0) return 0;
-        return ((int)(sqrts(x,x)));
+        return ((int)(sqarts(x,x)));
     }
-    public static double sqrts(double i,int x){
+    public static double sqarts(double i,int x){
         double res = (i + x / i) / 2;
+        System.out.println("r = " + res);
         if (res == i) {
             return i;
         } else {
-            return sqrts(res,x);
+            return sqarts(res,x);
         }
     }
 
