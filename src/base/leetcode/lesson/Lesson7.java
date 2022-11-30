@@ -1,7 +1,11 @@
+package lesson;
+
 /**
  * 柠檬水找零
+ * 在柠檬水摊上，每一杯柠檬水的售价为 5 美元。顾客排队购买你的产品，一次购买一杯。
+ * 每位顾客只买一杯柠檬水，然后向你付 5 美元、10 美元或 20 美元。必须给每个顾客正确找零
  */
-public class Lesson6 {
+public class Lesson7 {
 
     public static boolean lemonadeChange(int[] bills) {
         int fiveNum = 0, tenNum = 0;
