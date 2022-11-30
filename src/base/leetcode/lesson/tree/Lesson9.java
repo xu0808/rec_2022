@@ -1,7 +1,7 @@
 package lesson.tree;
 
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 省份数量
@@ -21,8 +21,10 @@ public class Lesson9 {
      */
     public static int findCircleNum(int[][] isConnected) {
         int provinces = isConnected.length;
+        // 标记是否被访问
         boolean[] visited = new boolean[provinces];
         int circles = 0;
+        // 每个未标记的节点标记其所有邻居
         for (int i = 0; i < provinces; i++) {
             if (!visited[i]) {
                 dfs(isConnected, visited, provinces, i);
@@ -32,6 +34,9 @@ public class Lesson9 {
         return circles;
     }
 
+    /**
+     * 深度搜索：迭代标记i节点所有关联节点
+     */
     public static void dfs(int[][] isConnected, boolean[] visited, int provinces, int i) {
         for (int j = 0; j < provinces; j++) {
             if (isConnected[i][j] == 1 && !visited[j]) {
@@ -50,23 +55,33 @@ public class Lesson9 {
         int provinces = isConnected.length;
         boolean[] visited = new boolean[provinces];
         int circles = 0;
-        Queue<Integer> queue = new LinkedList<Integer>();
+        List<Integer> neighbors = new ArrayList();
         for (int i = 0; i < provinces; i++) {
             if (!visited[i]) {
-                queue.offer(i);
-                while (!queue.isEmpty()) {
-                    int j = queue.poll();
-                    visited[j] = true;
-                    for (int k = 0; k < provinces; k++) {
-                        if (isConnected[j][k] == 1 && !visited[k]) {
-                            queue.offer(k);
-                        }
-                    }
+                neighbors.add(i);
+                while (!neighbors.isEmpty()) {
+                    neighbors = nextLevel(neighbors, isConnected, visited);
+                    circles++;
                 }
-                circles++;
             }
         }
         return circles;
+    }
+
+    /**
+     * 没有出现叶子节点时返回全部下一层，否则返回空
+     */
+    public static List<Integer> nextLevel(List<Integer> neighbors, int[][] isConnected, boolean[] visited) {
+        List<Integer> newSubs = new ArrayList();
+        for (Integer j : neighbors) {
+            visited[j] = true;
+            for (int k = 0; k < visited.length; k++) {
+                if (isConnected[j][k] == 1 && !visited[k]) {
+                    newSubs.add(k);
+                }
+            }
+        }
+        return newSubs;
     }
 
     /**
@@ -128,8 +143,7 @@ public class Lesson9 {
 
     public static void main(String[] args) {
         // int[][] array = new  int[][]{{1, 1, 0}, {1, 1, 0}, {0, 0, 1}}; // 2
-        int[][] array = new int[][]{{1, 0, 0}, {0, 1, 0}, {0, 0, 1}}; // 3
-        TreeNode root = new TreeNode().creteTree();
+        int[][] array = new int[][]{{1, 0, 0}, {0, 1, 0}, {0, 0, 1}}; // 3;
         long ts0 = System.currentTimeMillis();
         System.out.println("meth 1 = " + findCircleNum(array));
         long ts1 = System.currentTimeMillis();

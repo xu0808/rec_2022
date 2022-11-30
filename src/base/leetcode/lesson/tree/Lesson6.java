@@ -84,7 +84,7 @@ public class Lesson6 {
 
         List<TreeNode> subs = new ArrayList();
         subs.add(root);
-        while (subs.size() > 0){
+        while (!subs.isEmpty()){
             subs = nextLevel(subs);
             deep ++;
         }
