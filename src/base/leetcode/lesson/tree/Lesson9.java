@@ -101,12 +101,13 @@ public class Lesson9 {
         for (int i = 0; i < provinces; i++) {
             for (int j = i + 1; j < provinces; j++) {
                 if (isConnected[i][j] == 1) {
+                    // 逐个节点合并树
                     merge(i, j, head, level);
                 }
             }
         }
         int count = 0;
-        //找出所有的head
+        // 找出所有的head
         for (int i = 0; i < provinces; i++) {
             if (head[i] == i) {
                 count++;
@@ -115,29 +116,60 @@ public class Lesson9 {
         return count;
     }
 
-    //查找head节点
+    // 查找head节点
     public static int find(int x, int[] arr) {
-        if (arr[x] == x)
-            return x;
+        int head = arr[x];
+        if ( x == head)
+            return head;
         else
-            arr[x] = find(arr[x], arr);//路径压缩，每一个节点直接能找到head
-        return arr[x];
+            // 逐步查找上一节点，直到根节点
+            head = find(head, arr);
+        return head;
     }
 
     public static void merge(int x, int y, int[] arr, int[] level) {
-        int i = find(x, arr);
-        int j = find(y, arr);
-        //深度比较短的树的head往深度大的树上挂，使合并后的深度尽量小
-        if (i == j) {
+        // 各自的节点合并
+        int head1 = find(x, arr);
+        int head2 = find(y, arr);
+
+        // 同一根节点直接返回
+        if (head1 == head2) {
             return;
         }
-        if (level[i] <= level[j]) {
-            arr[i] = j;
+
+        // 浅的树合并到深得树上且把浅的树深度累加
+        if (level[head1] <= level[head2]) {
+            arr[head1] = head2;
+            // 深度加1
+            level[head1]++;
         } else {
-            arr[j] = i;
+            arr[head2] = head1;
+            // 深度加1
+            level[head2]++;
         }
-        //深度加1
-        level[j]++;
+    }
+
+
+
+    /**
+     * 解法4：集合标记法
+     * 获取一个城市，先标记与该城市直连的城市(最近的)，然后逐步向外扩散寻找
+     */
+    public static int map(int[][] isConnected) {
+        int provinces = isConnected.length;
+        boolean[] visited = new boolean[provinces];
+        int circles = 0;
+        List<Integer> neighbors = new ArrayList();
+        for (int i = 0; i < provinces; i++) {
+            if (!visited[i]) {
+                neighbors.add(i);
+                while (!neighbors.isEmpty()) {
+                    neighbors = nextLevel(neighbors, isConnected, visited);
+                    circles++;
+                }
+            }
+        }
+        return circles;
     }
 
 
