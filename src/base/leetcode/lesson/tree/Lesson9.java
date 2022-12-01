@@ -1,7 +1,6 @@
 package lesson.tree;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * 省份数量
@@ -153,29 +152,75 @@ public class Lesson9 {
 
     /**
      * 解法4：集合标记法
-     * 获取一个城市，先标记与该城市直连的城市(最近的)，然后逐步向外扩散寻找
      */
     public static int map(int[][] isConnected) {
-        int provinces = isConnected.length;
-        boolean[] visited = new boolean[provinces];
-        int circles = 0;
-        List<Integer> neighbors = new ArrayList();
-        for (int i = 0; i < provinces; i++) {
-            if (!visited[i]) {
-                neighbors.add(i);
-                while (!neighbors.isEmpty()) {
-                    neighbors = nextLevel(neighbors, isConnected, visited);
-                    circles++;
+        Map<Integer, Set<Integer>> map = new HashMap();
+        int size = isConnected.length;
+
+        // 1、邻接矩阵
+        for (int i = 0; i < size; i++) {
+            for (int j = i + 1; j < size; j++) {
+                if (isConnected[i][j] == 1) {
+                   if(!map.containsKey(i)){
+                       map.put(i, new HashSet<>());
+                   }
+                    if(!map.containsKey(j)){
+                        map.put(j, new HashSet<>());
+                    }
+                    map.get(i).add(j);
+                    map.get(j).add(i);
                 }
+            }
+        }
+
+        // 2、标记所有树的head
+        boolean[] visited = new boolean[size];
+        boolean[] isHead = new boolean[size];
+        for (int i = 0; i < size; i++) {
+            if (!visited[i]) {
+                isHead[i] = true;
+                // 独立节点
+                if(!map.containsKey(i)){
+                    continue;
+                }
+                Set<Integer> newSubs = new HashSet();
+                newSubs.add(i);
+                while (!newSubs.isEmpty()) {
+                    newSubs = nextLevel(map, newSubs, visited);
+                }
+            }
+        }
+        int circles = 0;
+        for(boolean b:isHead){
+            if(b){
+                circles ++;
             }
         }
         return circles;
     }
 
+    public static Set<Integer> nextLevel(Map<Integer, Set<Integer>> map, Set<Integer> subs,boolean[] visited) {
+        Set<Integer> newSubs = new HashSet();
+        for(Integer sub:subs){
+            if(!map.containsKey(sub)){
+                continue;
+            }
+            for(Integer node:map.get(sub)){
+                // 已经访问过
+                if(visited[node]){
+                    continue;
+                }
+                newSubs.add(node);
+                visited[node] = true;
+            }
+        }
+        return newSubs;
+    }
+
 
     public static void main(String[] args) {
-        // int[][] array = new  int[][]{{1, 1, 0}, {1, 1, 0}, {0, 0, 1}}; // 2
-        int[][] array = new int[][]{{1, 0, 0}, {0, 1, 0}, {0, 0, 1}}; // 3;
+        int[][] array = new  int[][]{{1, 1, 0}, {1, 1, 0}, {0, 0, 1}}; // 2
+        // int[][] array = new int[][]{{1, 0, 0}, {0, 1, 0}, {0, 0, 1}}; // 3;
         long ts0 = System.currentTimeMillis();
         System.out.println("meth 1 = " + findCircleNum(array));
         long ts1 = System.currentTimeMillis();
@@ -186,5 +231,8 @@ public class Lesson9 {
         System.out.println("meth 3 = " + mergeFind(array));
         long ts3 = System.currentTimeMillis();
         System.out.println("time 3 = " + (ts3 - ts2) + "ms");
+        System.out.println("meth 4 = " + map(array));
+        long ts4 = System.currentTimeMillis();
+        System.out.println("time 4 = " + (ts4 - ts3) + "ms");
     }
 }
