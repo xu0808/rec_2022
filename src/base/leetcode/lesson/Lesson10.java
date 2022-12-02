@@ -31,6 +31,24 @@ public class Lesson10 {
         return Math.max(selectLeft, selectRight);
     }
 
+
+    /**
+     * 解法2：动态规划
+     */
+    public static boolean dp(int[] nums) {
+        int length = nums.length;
+        int[] dp = new int[length];
+        for (int i = 0; i < length; i++) {
+            dp[i] = nums[i];
+        }
+        for (int i = length - 2; i >= 0; i--) {
+            for (int j = i + 1; j < length; j++) {
+                dp[j] = Math.max(nums[i] - dp[j], nums[j] - dp[j - 1]);
+            }
+        }
+        return dp[length - 1] >= 0;
+    }
+
     public static void main(String[] args) {
         long ts0 = System.currentTimeMillis();
         // 偶数个存在必赢方法
@@ -46,5 +64,8 @@ public class Lesson10 {
         System.out.println("p1 = " + p1 + ",p2 = " + p2 + ",p1 >= p2 == " + (p1 >= p2));
         long ts1 = System.currentTimeMillis();
         System.out.println("time 1 = " + (ts1 - ts0) + "ms");
+        System.out.println("p1 >= p2 == " + dp(arr));
+        long ts2 = System.currentTimeMillis();
+        System.out.println("time 2 = " + (ts2 - ts1) + "ms");
     }
 }
