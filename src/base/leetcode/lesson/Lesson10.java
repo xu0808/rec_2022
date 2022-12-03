@@ -31,9 +31,22 @@ public class Lesson10 {
         return Math.max(selectLeft, selectRight);
     }
 
+    /**
+     * 解法2：差值法
+     */
+    public static int maxScore1(int[] nums, int start, int end) {
+        if (end == start) {
+            return nums[start];
+        }
+        int selectLeft = nums[start] - maxScore1(nums, start + 1, end);
+        int selectRight = nums[end] - maxScore1(nums, start, end - 1);
+        return Math.max(selectLeft, selectRight);
+    }
+
+
 
     /**
-     * 解法2：动态规划
+     * 解法3：动态规划
      */
     public static boolean dp(int[] nums) {
         int length = nums.length;
