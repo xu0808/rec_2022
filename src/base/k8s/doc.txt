@@ -1,0 +1,6 @@
+【课程】
+B站最简单的K8S教程
+1、视频
+https://www.bilibili.com/video/BV1k24y197KC/
+2、文档
+https://www.yuque.com/wukong-zorrm/qdoy5p
